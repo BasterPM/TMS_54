@@ -1,11 +1,20 @@
-def check_users_email_password(user_email, user_password, users_data):
-    if '@' in user_email:
-        for i in users_data:
-            if i.get('email') == user_email and i.get('password') == user_password:
-                return user_email
-            else:
-                print('The email or password was entered incorrectly. Try again!')
-                return False
-    else:
-        print('email entered incorrectly')
-        return False
+def check_users_email(user_email, users_data):
+    """Принимаем введенные пользователем емеил при логининге
+    проверяем правильность данных, если есть совпадение возвращаем True
+    иначе False"""
+    for i in users_data:
+        if i.get('email') == user_email:
+            return True
+    return False
+
+
+def check_users_password(user_email, user_password, users_data):
+    """Принимаем введенные пользователем пароль при логининге
+    проверяем правильность данных, если есть совпадение возвращаем True
+    иначе False"""
+    for i in users_data:
+        if i.get('email') == user_email and i.get('password') == user_password:
+            return True
+    return False
+
+
